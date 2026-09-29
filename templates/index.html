@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        EduGenie | AI Learning Assistant
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <main class="app-shell">
+
+        <!-- HERO -->
+
+        <header class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    AI-POWERED LEARNING ASSISTANT
+                </p>
+
+                <h1>
+                    Edu<span>Genie</span>
+                </h1>
+
+                <p class="hero-copy">
+                    Ask questions, simplify difficult concepts,
+                    create quizzes, summarize study material,
+                    and build personalized learning paths.
+                </p>
+
+            </div>
+
+            <div class="hero-badge">
+                Gemini + FastAPI
+            </div>
+
+        </header>
+
+
+        <!-- INPUT CARD -->
+
+        <section class="card">
+
+            <div class="task-grid">
+
+                <!-- TASK -->
+
+                <label class="field">
+
+                    <span>
+                        Choose a learning task
+                    </span>
+
+                    <select id="task">
+
+                        <option value="qa">
+                            Ask a Question
+                        </option>
+
+                        <option value="explain">
+                            Explain a Topic
+                        </option>
+
+                        <option value="quiz">
+                            Generate Quiz
+                        </option>
+
+                        <option value="summarize">
+                            Summarize Text
+                        </option>
+
+                        <option value="learn">
+                            Recommend Learning Path
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <!-- LEVEL -->
+
+                <label
+                    class="field"
+                    id="levelField"
+                >
+
+                    <span>
+                        Learning Level
+                    </span>
+
+                    <select id="level">
+
+                        <option>
+                            Beginner
+                        </option>
+
+                        <option>
+                            Intermediate
+                        </option>
+
+                        <option>
+                            Advanced
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <!-- WEEKS -->
+
+                <label
+                    class="field hidden"
+                    id="weeksField"
+                >
+
+                    <span>
+                        Weeks
+                    </span>
+
+                    <input
+                        id="weeks"
+                        type="number"
+                        min="1"
+                        max="52"
+                        value="6"
+                    >
+
+                </label>
+
+            </div>
+
+
+            <!-- INPUT -->
+
+            <label class="field">
+
+                <span id="inputLabel">
+                    Your Question
+                </span>
+
+                <textarea
+                    id="inputText"
+                    rows="9"
+                    placeholder="Example: Explain how TCP three-way handshake works."
+                ></textarea>
+
+            </label>
+
+
+            <!-- BUTTONS -->
+
+            <div class="actions">
+
+                <button
+                    id="submitBtn"
+                    class="primary"
+                >
+                    Generate Answer
+                </button>
+
+                <button
+                    id="clearBtn"
+                    class="secondary"
+                    type="button"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <p
+                id="errorBox"
+                class="message error hidden"
+            ></p>
+
+        </section>
+
+
+        <!-- RESULT -->
+
+        <section
+            id="resultCard"
+            class="card result-card hidden"
+        >
+
+            <div class="result-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        EDUGENIE RESULT
+                    </p>
+
+                    <h2 id="resultTitle">
+                        Your Result
+                    </h2>
+
+                </div>
+
+                <button
+                    id="copyBtn"
+                    class="secondary"
+                    type="button"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <div
+                id="result"
+                class="result"
+            ></div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>
+                EduGenie
+            </span>
+
+            <span>
+                Learn smarter • Revise faster • Practice better
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', path='app.js') }}"
+    ></script>
+
+</body>
+
+</html>
